@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final_Project;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            WeatherData d = new WeatherData();
+            d.printXML();
 
             for (;;)
             {
@@ -26,8 +29,7 @@ namespace ConsoleApplication1
                     Console.WriteLine("You are not the king so... try again");
                 }
             }
-            Console.WriteLine("Bye Bye")
-            Console.ReadLine();
+            Console.WriteLine("Bye Bye");
         }
     }
 }
