@@ -19,7 +19,7 @@ namespace ConsoleApplication1
                 Console.WriteLine("Please enter your name");
                 string temp = Console.ReadLine();
                 Console.WriteLine("Hi, " + temp);
-                if (temp.Equals("Hello World"))
+                if (temp.Equals("testing"))
                 {
                     Console.WriteLine("Bye World");
                     break;
