@@ -9,10 +9,8 @@ namespace ConsoleApplication1
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            WeatherData d = new WeatherData();
-            d.printXML();
+        static void Main(string[] args) { 
+        
 
             for (;;)
             {

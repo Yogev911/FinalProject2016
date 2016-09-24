@@ -4,7 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-
+/*
+    class OpenWeatherMap implements IWeatherDataService and parse the XML which
+    can be find at  api.openweathermap.org/data/2.5/weather.
+    after parse the xml it saves the data on object from WeatherData which it creates
+    uses singleton
+*/
 namespace Final_Project
 {
     class OpenWeatherMap : IWeatherDataService
@@ -13,7 +18,9 @@ namespace Final_Project
 
         private static OpenWeatherMap instance;
 
-        private OpenWeatherMap() { }
+        private OpenWeatherMap() {
+            weatherData = new WeatherData();
+        }
 
         public static OpenWeatherMap Instance
         {
@@ -28,15 +35,16 @@ namespace Final_Project
         }
 
         public WeatherData GetWeatherData(Location location) {
-            location = new Location("Hello World");
+            //location = new Location("Hello World");
             var api = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&mode=xml&appid=2fccd10128467348a961d23fc6dc1f59&units=metric", location.getLocation());
             try
             {
 
                 XDocument xdoc = XDocument.Load(api);
                 Console.WriteLine(xdoc.ToString());
-                Console.WriteLine(xdoc.Element("current").Element("city").Attribute("name").Value);
-                return new WeatherData();
+               // Console.WriteLine(xdoc.Element("current").Element("city").Attribute("name").Value);
+                weatherData.city = xdoc.Element("current").Element("city").Attribute("name").Value;
+                return weatherData;
 
 
             }

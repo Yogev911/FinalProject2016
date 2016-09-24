@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
-
+/*
+    the object from this class "WeatherData" will have parameters and 
+    data on specifyt location.
+    this class not doing anything except "holding" the data 
+*/
 namespace Final_Project
 {
     public class WeatherData { 

@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
+ * interface 
+ * currently have GetWeatherData methode
+ * this mthode should receive loctation and return object of WeatherData
+ */
 namespace Final_Project
 {
     public interface IWeatherDataService
