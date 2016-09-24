@@ -13,5 +13,11 @@ namespace Final_Project
         {
             locName = loc;
         }
+        public string getLocation()
+        {
+            return Console.ReadLine();
+        }
     }
+
+
 }
