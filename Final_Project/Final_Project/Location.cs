@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class Location
+    public class Location
     {
-        public string getLocation()
+        public string locName { get; set; }
+        public Location(string loc)
         {
-            return Console.ReadLine();
+            locName = loc;
         }
     }
 }
