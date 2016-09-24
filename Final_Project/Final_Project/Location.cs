@@ -10,17 +10,10 @@ namespace Final_Project
 {
     public class Location
     {
-        public string locName { get; set; }
+        public string LocName { get; set; }
         public Location(string loc)
         {
-            locName = loc;
-        }
-        public string getLocation()
-        {
-            Console.WriteLine("hello nir");
-            return Console.ReadLine();
+            LocName = loc;
         }
     }
-
-
 }
