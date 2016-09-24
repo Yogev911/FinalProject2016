@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /*
- * holding Locationk data
+ * holding Location data
  */
 namespace Final_Project
 {

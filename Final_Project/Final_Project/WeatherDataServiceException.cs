@@ -8,7 +8,7 @@ using System.Threading.Tasks;
  */
 namespace Final_Project
 {
-    class WeatherDataServiceException : Exception
+    public class WeatherDataServiceException : Exception
     {
         public WeatherDataServiceException()
         {

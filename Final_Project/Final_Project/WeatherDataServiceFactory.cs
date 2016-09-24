@@ -10,14 +10,24 @@ using System.Threading.Tasks;
  */
 namespace Final_Project
 {
-    class WeatherDataServiceFactory
+    public class WeatherDataServiceFactory
     {
-        public static IWeatherDataService OPEN_WETHER_MAP()
+        public static int OPEN_WEATHER_MAP = 1;
+        public static IWeatherDataService openWeatherMap()
         {
             Console.WriteLine("OPEN_WEATHER_MAP");
             return OpenWeatherMap.Instance;
         }
+        public  static IWeatherDataService GetWeatherDataService(int temp)
+        {
+            if (temp == 1)
+            {
+                return openWeatherMap();
+            }
+            throw (new WeatherDataServiceException("Error no IWeatherDataService to return"));
+        }
 
+        
 
     }
     
