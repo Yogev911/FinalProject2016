@@ -28,7 +28,7 @@ namespace Final_Project
         }
 
         public WeatherData GetWeatherData(Location location) {
-            location = new Location();
+            location = new Location("Hello World");
             var api = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&mode=xml&appid=2fccd10128467348a961d23fc6dc1f59&units=metric", location.getLocation());
             try
             {
@@ -36,12 +36,14 @@ namespace Final_Project
                 XDocument xdoc = XDocument.Load(api);
                 Console.WriteLine(xdoc.ToString());
                 Console.WriteLine(xdoc.Element("current").Element("city").Attribute("name").Value);
+                return new WeatherData();
 
 
             }
             catch (Exception temp)
             {
                 Console.WriteLine(temp);
+                throw temp;
             };
         }
     }
