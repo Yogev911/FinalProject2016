@@ -35,15 +35,38 @@ namespace Final_Project
         }
 
         public WeatherData GetWeatherData(Location location) {
-            //location = new Location("Hello World");
-            var api = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&mode=xml&appid=2fccd10128467348a961d23fc6dc1f59&units=metric", location.getLocation());
+            Console.WriteLine("start format...");
+            string tmpLoc;
+            var api = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&mode=xml&appid=2fccd10128467348a961d23fc6dc1f59&units=metric", tmpLoc = location.getLocation());
             try
             {
 
                 XDocument xdoc = XDocument.Load(api);
                 Console.WriteLine(xdoc.ToString());
-               // Console.WriteLine(xdoc.Element("current").Element("city").Attribute("name").Value);
-                weatherData.city = xdoc.Element("current").Element("city").Attribute("name").Value;
+                //city elements
+                weatherData.cityName = xdoc.Element("current").Element("city").Attribute("name").Value;
+                weatherData.coordLon = xdoc.Element("current").Element("city").Element("coord").Attribute("lon").Value;
+                weatherData.coordLon = xdoc.Element("current").Element("city").Element("coord").Attribute("lat").Value;
+                weatherData.country = xdoc.Element("current").Element("city").Element("country").Value;
+                weatherData.sunRise = xdoc.Element("current").Element("city").Element("sun").Attribute("rise").Value;
+                weatherData.sunSet = xdoc.Element("current").Element("city").Element("sun").Attribute("set").Value;
+
+                weatherData.tempature = xdoc.Element("current").Element("temperature").Attribute("value").Value;
+                weatherData.tempatureMin = xdoc.Element("current").Element("temperature").Attribute("min").Value;
+                weatherData.tempatureMax = xdoc.Element("current").Element("temperature").Attribute("max").Value;
+
+                weatherData.humidity = xdoc.Element("current").Element("humidity").Attribute("value").Value;
+                weatherData.pressure = xdoc.Element("current").Element("pressure").Attribute("value").Value;
+
+                weatherData.windSpeed = xdoc.Element("current").Element("wind").Element("speed").Attribute("value").Value;
+
+                weatherData.clouds = xdoc.Element("current").Element("clouds").Attribute("value").Value;
+                weatherData.weather = xdoc.Element("current").Element("weather").Attribute("value").Value;
+                weatherData.lastupdate = xdoc.Element("current").Element("lastupdate").Attribute("value").Value;
+
+                if (!tmpLoc.Equals(weatherData.cityName))
+                    throw ("the city you entered is no mached to the xml");
+
                 return weatherData;
 
 
@@ -51,7 +74,15 @@ namespace Final_Project
             catch (Exception temp)
             {
                 Console.WriteLine(temp);
+
                 throw temp;
+            };
+
+            catch (string err)
+            {
+                Console.WriteLine(err);
+
+                
             };
         }
     }

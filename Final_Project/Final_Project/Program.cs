@@ -9,13 +9,21 @@ namespace ConsoleApplication1
 {
     class Program
     {
-        static void Main(string[] args) { 
-        
-
-            for (;;)
+        static void Main(string[] args)
+        {
+            while (true)
             {
-                Console.WriteLine("Please enter your name");
-                string temp = Console.ReadLine();
+                Console.WriteLine("Please enter the city");
+                Location city = new Location(Console.ReadLine());
+
+
+            }    
+
+      
+                
+                
+                //string temp = Console.ReadLine();
+
                 Console.WriteLine("Hi, " + temp);
                 if (temp.Equals("testing1"))
                 {
