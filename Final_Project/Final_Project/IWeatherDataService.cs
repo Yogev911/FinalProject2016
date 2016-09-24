@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    interface IWeatherDataService
+    public interface IWeatherDataService
     {
+        WeatherData GetWeatherData(Location location);
     }
 }
