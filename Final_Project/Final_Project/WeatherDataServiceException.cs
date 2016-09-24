@@ -8,5 +8,6 @@ namespace Final_Project
 {
     class WeatherDataServiceException : System.Exception
     {
+        
     }
 }
