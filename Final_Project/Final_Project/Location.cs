@@ -15,6 +15,7 @@ namespace Final_Project
         }
         public string getLocation()
         {
+            Console.WriteLine("hello nir");
             return Console.ReadLine();
         }
     }
