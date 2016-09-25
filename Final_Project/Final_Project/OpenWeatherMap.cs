@@ -49,7 +49,7 @@ namespace Final_Project
                 weatherData.cityName = xdoc.Element("current").Element("city").Attribute("name").Value;
                 if (!tmpLoc.Equals(weatherData.cityName))
                 {
-                    throw (new WeatherDataServiceException("Error not valid city name"));
+                    throw (new System.Xml.XmlException("Error not valid city name"));
                 }
                 weatherData.coordLon = xdoc.Element("current").Element("city").Element("coord").Attribute("lon").Value;
                 weatherData.coordLat = xdoc.Element("current").Element("city").Element("coord").Attribute("lat").Value;
@@ -77,12 +77,14 @@ namespace Final_Project
                 //throw ("the city you entered is no mached to the xml");
 
             }
-            catch (WeatherDataServiceException ex)
+            catch (System.Xml.XmlException ex)
             {
-                Console.WriteLine(ex);
+                new WeatherDataServiceException("bad operation",ex);
+               // Console.WriteLine(Xe);
                 return null;
                 
             };
+            
             return weatherData;
         }
     }
