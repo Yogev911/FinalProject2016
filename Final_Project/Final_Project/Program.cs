@@ -25,6 +25,7 @@ namespace ConsoleApplication1
                 Location city = new Location(CodeName);
                 /// Wd= OpenWeatherMapInstance.GetWeatherData(city);
                 Wd = service.GetWeatherData(city);
+                if (Wd == null) continue;
                 Console.WriteLine("Hey Sir, You requested to see the weather in {0} in country {1}", Wd.cityName,Wd.country);
                 Console.WriteLine("the last update i have is from {0} \nthe weather looks {1} ", Wd.lastupdate,Wd.weather);
                 Console.WriteLine("cloud status is {0} \nthe wind speed is {1} \nthe pressure (hmm wtf is this..) is {2}", Wd.clouds,Wd.windSpeed,Wd.pressure);

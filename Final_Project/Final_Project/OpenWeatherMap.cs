@@ -41,13 +41,16 @@ namespace Final_Project
             tmpLoc = location.LocName;
             var api = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&mode=xml&appid=2fccd10128467348a961d23fc6dc1f59&units=metric", tmpLoc);
             try
-            {
-                
+            { 
                 XDocument xdoc = XDocument.Load(api);
-                Console.WriteLine("***********************************************************************************************");
+                 Console.WriteLine("***********************************************************************************************");
                 //Console.WriteLine(xdoc.ToString());
                 //city elements
                 weatherData.cityName = xdoc.Element("current").Element("city").Attribute("name").Value;
+                if (!tmpLoc.Equals(weatherData.cityName))
+                {
+                    throw (new WeatherDataServiceException("Error not valid city name"));
+                }
                 weatherData.coordLon = xdoc.Element("current").Element("city").Element("coord").Attribute("lon").Value;
                 weatherData.coordLat = xdoc.Element("current").Element("city").Element("coord").Attribute("lat").Value;
                 weatherData.country = xdoc.Element("current").Element("city").Element("country").Value;
@@ -77,6 +80,8 @@ namespace Final_Project
             catch (WeatherDataServiceException ex)
             {
                 Console.WriteLine(ex);
+                return null;
+                
             };
             return weatherData;
         }
