@@ -8,27 +8,37 @@ using System.Threading.Tasks;
 
 namespace Final_Project.Tests
 {
+    
     [TestClass()]
     public class OpenWeatherMapTests
     {
+        OpenWeatherMap WDMTest = OpenWeatherMap.Instance;
+      
+
         [TestMethod()]
         public void GetWDTest()
         {
-            Assert.Fail();
+            WDMTest.GetWeatherData(new Location("London"));
+            if (WDMTest.GetWD() == null)
+                Assert.Fail();
         }
 
         [TestMethod()]
         public void ClearWeatherDataTest()
         {
-            Assert.Fail();
+            WDMTest.GetWeatherData(new Location("London"));
+            if(WDMTest.GetWD() != null)
+                WDMTest.ClearWeatherData();
+            if (WDMTest.GetWD() != null)
+                 Assert.Fail();
         }
 
         [TestMethod()]
-        public void GetWeatherDataTest(Location loc)
+        public void GetWeatherDataTest()
         {
-            loc = new Location("paris");
-            
-            Assert.Fail();
+            WDMTest.GetWeatherData(new Location("London"));
+            if (WDMTest.GetWD() == null)
+                Assert.Fail();
         }
     }
 }
