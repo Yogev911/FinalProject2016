@@ -12,7 +12,7 @@ using System.Xml.Linq;
 */
 namespace Final_Project
 {
-    class OpenWeatherMap : IWeatherDataService
+    public class OpenWeatherMap : IWeatherDataService
     {
         private WeatherData weatherData;
 

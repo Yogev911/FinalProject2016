@@ -31,7 +31,7 @@ namespace ConsoleApplication1
                 Console.WriteLine("cloud status is {0} \nthe wind speed is {1} \nthe pressure (hmm wtf is this..) is {2}", Wd.clouds,Wd.windSpeed,Wd.pressure);
                 Console.WriteLine("the humidity is {0}% \n\n", Wd.humidity);
             }
-            Console.WriteLine("bye bye and thanks to yogev that he is the best C# coder");
+            Console.WriteLine("bye bye and thank you for using Nir and Yogev code");
         }
     }
 }
