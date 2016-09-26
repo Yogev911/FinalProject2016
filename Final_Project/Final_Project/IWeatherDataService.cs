@@ -14,6 +14,7 @@ namespace Final_Project
     {
         WeatherData GetWeatherData(Location location);
         WeatherData GetWD();
+        void ClearWeatherData();
 
 
     }

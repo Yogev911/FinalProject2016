@@ -18,8 +18,7 @@ namespace Final_Project
 
         private static OpenWeatherMap instance;
 
-        private OpenWeatherMap() {
-            weatherData = new WeatherData();
+        private OpenWeatherMap() { 
         }
 
         public static OpenWeatherMap Instance
@@ -38,12 +37,16 @@ namespace Final_Project
         {
             return weatherData;
         }
-
+        public void ClearWeatherData()
+        {
+            weatherData = null;
+        }
         public WeatherData GetWeatherData(Location location)
         {
             Console.WriteLine("start format...");
+            weatherData = new WeatherData();
             string tmpLoc;
-            tmpLoc = location.LocName;
+            tmpLoc = location.LocName.ToUpper();
             var api = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&mode=xml&appid=2fccd10128467348a961d23fc6dc1f59&units=metric", tmpLoc);
             try
             { 
@@ -52,8 +55,9 @@ namespace Final_Project
                 //Console.WriteLine(xdoc.ToString());
                 //city elements
                 weatherData.cityName = xdoc.Element("current").Element("city").Attribute("name").Value;
-                if (!tmpLoc.Equals(weatherData.cityName))
+                if (!tmpLoc.Equals(weatherData.cityName.ToUpper()))
                 {
+                    ClearWeatherData();
                     throw (new System.Xml.XmlException("Error not valid city name"));
                 }
                 weatherData.coordLon = xdoc.Element("current").Element("city").Element("coord").Attribute("lon").Value;
@@ -85,7 +89,8 @@ namespace Final_Project
             catch (System.Xml.XmlException ex)
             {
                 new WeatherDataServiceException("bad operation",ex);
-               // Console.WriteLine(Xe);
+                // Console.WriteLine(Xe);
+                ClearWeatherData();
                 return null;
                 
             };
