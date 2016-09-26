@@ -51,7 +51,6 @@ namespace Final_Project
             try
             { 
                 XDocument xdoc = XDocument.Load(api);
-                 Console.WriteLine("***********************************************************************************************");
                 //Console.WriteLine(xdoc.ToString());
                 //city elements
                 weatherData.cityName = xdoc.Element("current").Element("city").Attribute("name").Value;
