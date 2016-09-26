@@ -13,5 +13,8 @@ namespace Final_Project
     public interface IWeatherDataService
     {
         WeatherData GetWeatherData(Location location);
+        WeatherData GetWD();
+
+
     }
 }

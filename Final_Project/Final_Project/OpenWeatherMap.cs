@@ -34,6 +34,11 @@ namespace Final_Project
             }
         }
 
+        public WeatherData GetWD()
+        {
+            return weatherData;
+        }
+
         public WeatherData GetWeatherData(Location location)
         {
             Console.WriteLine("start format...");
