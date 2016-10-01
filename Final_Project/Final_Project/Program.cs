@@ -9,27 +9,10 @@ namespace ConsoleApplication1
         {
             
             string CodeName;
-            IWeatherDataService service;
-            try
-            {
-                 service = WeatherDataServiceFactory.GetWeatherDataService(3);
-            }
-            catch (WeatherDataServiceException ex)
-            {
-                 
-                Console.WriteLine(ex);
-                
-            }
-            /* try { 
-                 IWeatherDataService service = WeatherDataServiceFactory.GetWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
-             }
-             catch(WeatherDataServiceException ex)
-             {
-                 Console.WriteLine(ex);
-             }*/
-            finally {
-                service = WeatherDataServiceFactory.GetWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
-                while (true)
+            //IWeatherDataService service = WeatherDataServiceFactory.GetWeatherDataService(3);
+            IWeatherDataService service = WeatherDataServiceFactory.GetWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
+
+            while (true)
             {
                 Console.WriteLine("Please enter the city or Exit to exit...");
                 CodeName = Console.ReadLine();
@@ -44,7 +27,7 @@ namespace ConsoleApplication1
                 Console.WriteLine("cloud status is {0} \nthe wind speed is {1} \nthe pressure (hmm wtf is this..) is {2}", service.GetWD().clouds, service.GetWD().windSpeed, service.GetWD().pressure);
                 Console.WriteLine("the humidity is {0}% \n\n", service.GetWD().humidity);
                 service.ClearWeatherData();
-            }
+            
             }
             Console.WriteLine("bye bye and thank you for using Nir and Yogev code");
         }

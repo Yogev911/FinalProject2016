@@ -24,7 +24,7 @@ namespace Weather_Library
             {
                 return openWeatherMap();
             }
-            throw (new WeatherDataServiceException("Error no IWeatherDataService to return"));
+            throw (new WeatherDataServiceException("Invalid Service\n"));
         }
 
         

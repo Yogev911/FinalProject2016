@@ -16,7 +16,7 @@ namespace Weather_Library
            
         }
 
-      
+
         public WeatherDataServiceException(string message) : base(message)
         {
             Console.WriteLine(message+" not good!!!!\n\n");
@@ -24,7 +24,7 @@ namespace Weather_Library
         }
         public WeatherDataServiceException(string message, System.Xml.XmlException inner) : base(message, inner)
         {
-            Console.WriteLine(message+"\n"+inner+"\problem with XML File\n");
+            Console.WriteLine(message+"\n"+inner+"\nproblem with XML File\n");
         }
 
     }
