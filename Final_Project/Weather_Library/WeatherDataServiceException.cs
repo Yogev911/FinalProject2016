@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /*
 * Class for dealing with diffrents excepptions from the libary
 */
-namespace Final_Project
+namespace Weather_Library
 {
     public class WeatherDataServiceException : Exception 
     {
@@ -24,12 +24,8 @@ namespace Final_Project
         }
         public WeatherDataServiceException(string message, System.Xml.XmlException inner) : base(message, inner)
         {
-            Console.WriteLine(message+"\n"+inner+"\ntestsssss\n");
+            Console.WriteLine(message+"\n"+inner+"\problem with XML File\n");
         }
 
-        public WeatherDataServiceException(string message, Exception inner) : base(message, inner)
-        {
-
-        }
     }
 }

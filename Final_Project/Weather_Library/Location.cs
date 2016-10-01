@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 /*
  * holding Location data
  */
-namespace Final_Project
+namespace Weather_Library
 {
     public class Location
     {

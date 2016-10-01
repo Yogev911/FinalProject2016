@@ -8,7 +8,7 @@ using System.Threading.Tasks;
  * for now can use only openweathermap.com
  * in the future can add more source
  */
-namespace Final_Project
+namespace Weather_Library
 {
     public class WeatherDataServiceFactory
     {

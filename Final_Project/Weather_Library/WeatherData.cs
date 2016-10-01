@@ -11,7 +11,7 @@ using System.Xml.XPath;
     data on specifyt location.
     this class not doing anything except "holding" the data 
 */
-namespace Final_Project
+namespace Weather_Library
 {
     public class WeatherData { 
         public string cityName { get; set; }

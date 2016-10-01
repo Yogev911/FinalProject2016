@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Final_Project;
+using Weather_Library;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Final_Project.Tests
+namespace Weather_Library.Tests
 {
     [TestClass()]
     public class LocationTests

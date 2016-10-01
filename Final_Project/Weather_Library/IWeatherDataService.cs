@@ -8,7 +8,7 @@ using System.Threading.Tasks;
  * currently have GetWeatherData methode
  * this mthode should receive loctation and return object of WeatherData
  */
-namespace Final_Project
+namespace Weather_Library
 {
     public interface IWeatherDataService
     {

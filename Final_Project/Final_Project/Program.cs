@@ -1,9 +1,5 @@
-﻿using Final_Project;
+﻿using Weather_Library;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
@@ -11,12 +7,29 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            //IWeatherDataService OpenWeatherMapInstance = OpenWeatherMap.Instance;
-            IWeatherDataService service = WeatherDataServiceFactory.GetWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
-            //WeatherData Wd = new WeatherData();
-            string CodeName;
             
-            while (true)
+            string CodeName;
+            IWeatherDataService service;
+            try
+            {
+                 service = WeatherDataServiceFactory.GetWeatherDataService(3);
+            }
+            catch (WeatherDataServiceException ex)
+            {
+                 
+                Console.WriteLine(ex);
+                
+            }
+            /* try { 
+                 IWeatherDataService service = WeatherDataServiceFactory.GetWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
+             }
+             catch(WeatherDataServiceException ex)
+             {
+                 Console.WriteLine(ex);
+             }*/
+            finally {
+                service = WeatherDataServiceFactory.GetWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
+                while (true)
             {
                 Console.WriteLine("Please enter the city or Exit to exit...");
                 CodeName = Console.ReadLine();
@@ -31,6 +44,7 @@ namespace ConsoleApplication1
                 Console.WriteLine("cloud status is {0} \nthe wind speed is {1} \nthe pressure (hmm wtf is this..) is {2}", service.GetWD().clouds, service.GetWD().windSpeed, service.GetWD().pressure);
                 Console.WriteLine("the humidity is {0}% \n\n", service.GetWD().humidity);
                 service.ClearWeatherData();
+            }
             }
             Console.WriteLine("bye bye and thank you for using Nir and Yogev code");
         }

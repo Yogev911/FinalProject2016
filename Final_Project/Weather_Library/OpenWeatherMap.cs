@@ -10,7 +10,7 @@ using System.Xml.Linq;
     after parse the xml it saves the data on object from WeatherData which it creates
     uses singleton
 */
-namespace Final_Project
+namespace Weather_Library
 {
     public class OpenWeatherMap : IWeatherDataService
     {
@@ -88,7 +88,6 @@ namespace Final_Project
             catch (System.Xml.XmlException ex)
             {
                 new WeatherDataServiceException("bad operation",ex);
-                // Console.WriteLine(Xe);
                 ClearWeatherData();
                 return null;
                 
