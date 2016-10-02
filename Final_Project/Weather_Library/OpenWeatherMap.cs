@@ -46,14 +46,15 @@ namespace Weather_Library
             weatherData = new WeatherData();
             string tmpLoc;
             tmpLoc = location.LocName.ToUpper();
+           
+           
             var api = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&mode=xml&appid=2fccd10128467348a961d23fc6dc1f59&units=metric", tmpLoc);
             try
-            { 
+            {
                 XDocument xdoc = XDocument.Load(api);
                 weatherData.cityName = xdoc.Element("current").Element("city").Attribute("name").Value;
                 if (!tmpLoc.Equals(weatherData.cityName.ToUpper()))
                 {
-                    ClearWeatherData();
                     throw (new System.Xml.XmlException("Error not valid city name"));
                 }
                 weatherData.coordLon = xdoc.Element("current").Element("city").Element("coord").Attribute("lon").Value;

@@ -9,13 +9,31 @@ namespace ConsoleApplication1
         {
             
             string CodeName;
-            IWeatherDataService service = WeatherDataServiceFactory.GetWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
+            IWeatherDataService service;
+            //we used try and catch to demonstrate if the method
+            //GetWeatherDataService (in WeatherDataServiceFactory) had been called with valid number
+            //the number should choose the method of the service 
+            // in our case there is only one service OpenWeahterMap
+            try
+            {
+                //calling the method with invalid number
+                //for catching this error
+                service = WeatherDataServiceFactory.GetWeatherDataService(3);
+               
+            }
+            catch(WeatherDataServiceException ex)
+            {
+                Console.WriteLine(ex+"\nusing OPEN_WEATHER_MAP service for program continue to work");
+              //next line is equal to:
+              //service = OpenWeatherMap.Instance
+                service = WeatherDataServiceFactory.GetWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
+            }
             while (true)
             {
-                
+
                 Console.WriteLine("Please enter the city or Exit to exit...");
                 CodeName = Console.ReadLine();
-                if (CodeName.Equals("Exit"))
+                if (CodeName.Equals("Exit")|| CodeName.Equals("exit")|| CodeName.Equals("EXIST"))
                     break;
                 service.GetWeatherData(new Location(CodeName));
                 if (service.GetWD() == null) continue;
@@ -29,9 +47,10 @@ namespace ConsoleApplication1
                 Console.WriteLine("the wind speed is {0} MPH", service.GetWD().windSpeed);
                 Console.WriteLine("the pressure is {0} hPa", service.GetWD().pressure);
                 Console.WriteLine("cloud status is {0} and that's great", service.GetWD().clouds);
-                Console.WriteLine("the humidity is {0}% \n\n\n\n", service.GetWD().humidity);
+                Console.WriteLine("the humidity is {0}% \n\n", service.GetWD().humidity);
                 service.ClearWeatherData();
             }
+
             Console.WriteLine("Copyrights Shenkar - Software Engineering");
             Console.WriteLine("Course Programming Languages Oct 2016 - By Mr. Life Michael ");
             Console.WriteLine("Written by Yogev Heskia and Nir Mekin ");

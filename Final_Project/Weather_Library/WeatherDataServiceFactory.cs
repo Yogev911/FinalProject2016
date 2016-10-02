@@ -20,11 +20,12 @@ namespace Weather_Library
         }
         public  static IWeatherDataService GetWeatherDataService(int temp)
         {
-            if (temp == 1)
+            switch (temp)
             {
-                return openWeatherMap();
+                case 1: return openWeatherMap();
+                default: throw (new WeatherDataServiceException("Invalid Service\n"));
             }
-            throw (new WeatherDataServiceException("Invalid Service\n"));
+           
         }
     }
     
