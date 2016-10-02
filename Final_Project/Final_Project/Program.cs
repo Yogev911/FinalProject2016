@@ -31,7 +31,6 @@ namespace ConsoleApplication1
                 Console.WriteLine("cloud status is {0} and that's great", service.GetWD().clouds);
                 Console.WriteLine("the humidity is {0}% \n\n\n\n", service.GetWD().humidity);
                 service.ClearWeatherData();
-                
             }
             Console.WriteLine("Copyrights Shenkar - Software Engineering");
             Console.WriteLine("Course Programming Languages Oct 2016 - By Mr. Life Michael ");
