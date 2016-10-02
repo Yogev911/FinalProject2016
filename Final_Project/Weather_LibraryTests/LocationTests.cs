@@ -15,8 +15,8 @@ namespace Weather_Library.Tests
         [TestMethod()]
         public void LocationTest()
         {
-            Location LocationTest = new Location("London");
-            Assert.AreEqual<string>(LocationTest.LocName, "London");
+            Location LocationTest = new Location("Paris");
+            Assert.AreEqual<string>(LocationTest.LocName, "Paris");
         }
     }
 }

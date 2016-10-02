@@ -18,7 +18,6 @@ namespace Weather_Library.Tests
             IWeatherDataService ServiceTest2 = WeatherDataServiceFactory.openWeatherMap();
             Assert.AreEqual(ServiceTest1.GetHashCode(), ServiceTest2.GetHashCode());
         }
-
         [TestMethod()]
         public void GetWeatherDataServiceTest()
         {

@@ -15,17 +15,14 @@ namespace Weather_Library
         {
            
         }
-
-
         public WeatherDataServiceException(string message) : base(message)
         {
-            Console.WriteLine(message+" not good!!!!\n\n");
+            Console.WriteLine(message);
 
         }
         public WeatherDataServiceException(string message, System.Xml.XmlException inner) : base(message, inner)
         {
-            Console.WriteLine(message+"\n"+inner+"\nproblem with XML File\n");
+            Console.WriteLine(message+ "There was a problem with with the XML File. \n"+inner+"\n");
         }
-
     }
 }

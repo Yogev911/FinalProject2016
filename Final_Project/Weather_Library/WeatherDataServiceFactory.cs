@@ -26,9 +26,6 @@ namespace Weather_Library
             }
             throw (new WeatherDataServiceException("Invalid Service\n"));
         }
-
-        
-
     }
     
 }

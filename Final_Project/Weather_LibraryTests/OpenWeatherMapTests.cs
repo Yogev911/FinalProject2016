@@ -16,14 +16,14 @@ namespace Weather_Library.Tests
         [TestMethod()]
         public void GetWDTest()
         {
-            WDMTest.GetWeatherData(new Location("London"));
+            WDMTest.GetWeatherData(new Location("Paris"));
             Assert.IsNotNull(WDMTest.GetWD());
         }
 
         [TestMethod()]
         public void ClearWeatherDataTest()
         {
-            WDMTest.GetWeatherData(new Location("London"));
+            WDMTest.GetWeatherData(new Location("Paris"));
             Assert.IsNotNull(WDMTest.GetWD());
             WDMTest.ClearWeatherData();
             Assert.IsNull(WDMTest.GetWD());
@@ -32,26 +32,22 @@ namespace Weather_Library.Tests
         [TestMethod()]
         public void GetWeatherDataTest()
         {
-
-            WDMTest.GetWeatherData(new Location("London"));
-            Assert.AreEqual<string>(WDMTest.GetWD().cityName, "London");
-            Assert.AreEqual<string>(WDMTest.GetWD().coordLon, "-0.13");
-            Assert.AreEqual<string>(WDMTest.GetWD().coordLat, "51.51");
-            Assert.AreEqual<string>(WDMTest.GetWD().country, "GB");
-            Assert.AreEqual<string>(WDMTest.GetWD().lastupdate, "2016-09-28T10:18:48");
-            Assert.AreEqual<string>(WDMTest.GetWD().sunRise, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().sunSet, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().tempatureMin, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().tempatureMax, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().tempature, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().humidity, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().pressure, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().windSpeed, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().clouds, "");
-            Assert.AreEqual<string>(WDMTest.GetWD().weather, "");
-
-
+            WDMTest.GetWeatherData(new Location("Paris"));
+            Assert.AreEqual<string>(WDMTest.GetWD().cityName, "Paris");
+            Assert.AreEqual<string>(WDMTest.GetWD().coordLon, "2.35");
+            Assert.AreEqual<string>(WDMTest.GetWD().coordLat, "48.85");
+            Assert.AreEqual<string>(WDMTest.GetWD().country, "FR");
+            Assert.AreEqual<string>(WDMTest.GetWD().lastupdate, "2016-10-02T05:54:02");
+            Assert.AreEqual<string>(WDMTest.GetWD().sunRise, "2016-10-02T05:52:23");
+            Assert.AreEqual<string>(WDMTest.GetWD().sunSet, "2016-10-02T17:26:13");
+            Assert.AreEqual<string>(WDMTest.GetWD().tempatureMin, "8.33");
+            Assert.AreEqual<string>(WDMTest.GetWD().tempatureMax, "10");
+            Assert.AreEqual<string>(WDMTest.GetWD().tempature, "8.83");
+            Assert.AreEqual<string>(WDMTest.GetWD().humidity, "92");
+            Assert.AreEqual<string>(WDMTest.GetWD().pressure, "1013");
+            Assert.AreEqual<string>(WDMTest.GetWD().windSpeed, "2.06");
+            Assert.AreEqual<string>(WDMTest.GetWD().clouds, "few clouds");
+            Assert.AreEqual<string>(WDMTest.GetWD().weather, "light rain");
         }
-
     }
 }

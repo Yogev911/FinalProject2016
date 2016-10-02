@@ -43,7 +43,6 @@ namespace Weather_Library
         }
         public WeatherData GetWeatherData(Location location)
         {
-            Console.WriteLine("start format...");
             weatherData = new WeatherData();
             string tmpLoc;
             tmpLoc = location.LocName.ToUpper();
@@ -51,8 +50,6 @@ namespace Weather_Library
             try
             { 
                 XDocument xdoc = XDocument.Load(api);
-                //Console.WriteLine(xdoc.ToString());
-                //city elements
                 weatherData.cityName = xdoc.Element("current").Element("city").Attribute("name").Value;
                 if (!tmpLoc.Equals(weatherData.cityName.ToUpper()))
                 {
@@ -80,14 +77,10 @@ namespace Weather_Library
                 weatherData.weather = xdoc.Element("current").Element("weather").Attribute("value").Value;
                 //lastupdate
                 weatherData.lastupdate = xdoc.Element("current").Element("lastupdate").Attribute("value").Value;
-                
-                // if (!tmpLoc.Equals(weatherData.cityName))
-                //throw ("the city you entered is no mached to the xml");
-
             }
             catch (System.Xml.XmlException ex)
             {
-                new WeatherDataServiceException("bad operation",ex);
+                new WeatherDataServiceException("Exception!\n", ex);
                 ClearWeatherData();
                 return null;
                 
